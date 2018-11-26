@@ -1,25 +1,38 @@
 <template>
-  <div class="search">
+<div class="search">
     <form>
-      <div class="form-group form-row">
-        <label for="selectedInput" class="col-sm-4 col-form-label text-right">
-          <img alt="Vue logo" src="../assets/logo.png" height="24px">
-          Select protein source
-        </label>
-        <div class="col-sm-8">
-          <input type="text" class="form-control" id="selectedInput">
+        <div class="form-group form-row">
+            <label for="selectedInput" class="col-sm-4 col-form-label text-right">
+                <img alt="Vue logo" src="../assets/logo.png" height="24px">
+                Select protein source
+            </label>
+        <vaadin-combo-box
+            class="col-sm-8"
+            id="selectedInput"
+            placeholder="Please select" 
+            :items="proteins"/>
         </div>
-      </div>
     </form>
-  </div>
+</div>
 </template>
 
 <script>
+import "@vaadin/vaadin-combo-box/vaadin-combo-box"
+import FoodRepository from "../FoodRepository.js"
+
 export default {
-  name: 'selector',
-  props: {
-    selected: String
-  }
+    name: "selector",
+    props: {
+        selected: String
+    },
+    data() {
+        this.foodRepository = new FoodRepository();
+        return {
+        proteins: JSON.stringify(
+            this.foodRepository.readAll().map(food => food.name)
+        )
+        }
+    }
 }
 </script>
 

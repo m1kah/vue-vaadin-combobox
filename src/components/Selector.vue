@@ -1,13 +1,13 @@
 <template>
-<div class="search">
-    <form>
+<div class="row">
+    <form class="col-12">
         <div class="form-group form-row">
-            <label for="selectedInput" class="col-sm-4 col-form-label text-right">
+            <label for="selectedInput" class="col-sm-3 col-form-label text-right">
                 <img alt="Vue logo" src="../assets/logo.png" height="24px">
                 Select protein source
             </label>
         <vaadin-combo-box
-            class="col-sm-8"
+            class="col-sm-3"
             id="selectedInput"
             placeholder="Please select" 
             :items="proteins"/>

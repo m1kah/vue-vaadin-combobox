@@ -25,12 +25,14 @@ export default {
     props: {
         selected: String
     },
+    beforeCreate() {
+        this.foodRepository = new FoodRepository()
+    },
     data() {
-        this.foodRepository = new FoodRepository();
         return {
-        proteins: JSON.stringify(
-            this.foodRepository.readAll().map(food => food.name)
-        )
+            proteins: JSON.stringify(
+                this.foodRepository.readAll().map(food => food.name)
+            )
         }
     }
 }

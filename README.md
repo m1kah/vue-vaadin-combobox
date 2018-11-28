@@ -1,29 +1,11 @@
-# vue-vaadin-combobox
+# Vue project using Vaadin combobox
 
-## Project setup
-```
-yarn install
-```
+Example project with 2 Vue components using Vaadin Combobox component. 
+Selecting a protein source in combobox updates second Vue component.
 
-### Compiles and hot-reloads for development
+Run:
 ```
-yarn run serve
+yarn serve
 ```
 
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+<img src="https://github.com/m1kah/vue-vaadin-combobox/raw/master/doc/screenshot.png?raw=true" width="440px" height="440px" />

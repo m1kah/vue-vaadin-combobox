@@ -2,15 +2,19 @@
 <div class="row">
     <form class="col-12">
         <div class="form-group form-row">
-            <label for="selectedInput" class="col-sm-3 col-form-label text-right">
+            <label for="selection-component" class="col-sm-3 col-form-label text-right">
                 <img alt="Vue logo" src="../assets/logo.png" height="24px">
                 Select protein source
             </label>
         <vaadin-combo-box
             class="col-sm-3"
-            id="selectedInput"
+            id="selection-component"
             placeholder="Please select" 
-            :items="proteins"/>
+            item-label-path="name"
+            :items="proteins"
+            :value="selected"
+            @selected-item-changed="$emit('selection-changed', $event.target.selectedItem)"
+            />
         </div>
     </form>
 </div>
@@ -31,7 +35,7 @@ export default {
     data() {
         return {
             proteins: JSON.stringify(
-                this.foodRepository.readAll().map(food => food.name)
+                this.foodRepository.readAll()
             )
         }
     }

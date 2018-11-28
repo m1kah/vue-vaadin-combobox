@@ -1,7 +1,7 @@
 <template>
 <div id="app" class="container">
-    <Selector selected=""/>
-    <Detail />
+    <Selector selected="" @selection-changed="onSelectionChanged"/>
+    <Detail :value="selection" />
 </div>
 </template>
 
@@ -14,6 +14,21 @@ export default {
     components: {
         Selector,
         Detail
+    },
+    data: function() {
+        return {
+            selection: Object
+        }
+    },
+    methods: {
+        onSelectionChanged(selection) {
+            if (selection) {
+                this.selection = selection
+                console.log(selection)
+            } else {
+                this.selection = null
+            }
+        }
     }
 }
 </script>
